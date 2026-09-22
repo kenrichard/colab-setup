@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 1: Git</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../">← All setup steps</a>
+  <p class="part-label">Part 1</p>
+  <h1>Install git and connect to GitHub</h1>
+  <p class="lede">This installs the tools Claude Code needs: git, the GitHub tools and Node. It takes 15–45 minutes, mostly waiting for downloads.</p>
+
+  <ol class="steps">
+    <li>
+      <h2>Copy the command</h2>
+      <div class="command">
+        <code>curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh | bash</code>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </li>
+
+    <li>
+      <h2>Open Terminal and paste it</h2>
+      <p>Press <kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, and press <kbd>Return</kbd>. Click in the window, press <kbd>⌘</kbd> + <kbd>V</kbd> to paste, then press <kbd>Return</kbd>.</p>
+    </li>
+
+    <li>
+      <h2>Follow what it says</h2>
+      <p>Keep the laptop plugged in and the lid open. Along the way it will:</p>
+      <ul>
+        <li>Ask for your <strong>Mac password</strong> once. Nothing appears on screen while you type it. That's normal. Type it and press <kbd>Return</kbd>.</li>
+        <li>Ask for your <strong>name and email</strong>.</li>
+        <li>Have you <strong>sign in to GitHub</strong> in your browser. If you don't have an account, make one at <a href="https://github.com/signup">github.com</a> first.</li>
+      </ul>
+    </li>
+
+    <li>
+      <h2>Send Ken a screenshot</h2>
+      <p>When it says <strong>All done</strong>, press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Terminal window. The screenshot lands on your desktop.</p>
+      <p class="note">If it stops with an error, send a screenshot of that instead. It's safe to run again; it skips whatever is already done.</p>
+    </li>
+
+    <li>
+      <h2>Restart Claude</h2>
+      <p>Quit the Claude app with <kbd>⌘</kbd> + <kbd>Q</kbd> and open it again, so it finds the new tools.</p>
+    </li>
+  </ol>
+
+  <details>
+    <summary>What does this install?</summary>
+    <p style="margin-top:10px"><strong>Git</strong> keeps a history of every change to the code and makes it possible to undo changes. <strong>GitHub</strong> is the website where the coLAB code is shared. Claude Code needs both.</p>
+    <p>In order, the script installs Apple's Command Line Tools (which include git), Homebrew (which installs the rest), the GitHub command-line tool, and Node. Then it records your name for git and signs you in to GitHub.</p>
+    <p>You can <a href="https://github.com/kenrichard/colab-setup/blob/main/setup-mac.sh">read the script</a> before running it.</p>
+  </details>
+
+  <footer>Questions: ask Ken.</footer>
+</main>
+<script src="../copy.js"></script>
+</body>
+</html>

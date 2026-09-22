@@ -1,6 +1,6 @@
 # coLAB Mac setup
 
-**Setup page: https://kenrichard.github.io/colab-setup/** — the same steps with a copy button.
+**Setup pages: https://kenrichard.github.io/colab-setup/** — an index of the steps. Each part is a folder (`1-git/`) with its own `index.html`; `style.css` and `copy.js` are shared.
 
 Installs the tools Claude Code needs to work on the coLAB project: git (from
 Apple's Command Line Tools), Homebrew, the GitHub CLI and Node. It then signs
