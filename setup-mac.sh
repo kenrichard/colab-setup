@@ -6,12 +6,14 @@
 # is meant to be read by them, so it says what is happening in plain words and,
 # when something fails, what to send Ken.
 #
-# Run it with (the $(...) form keeps the keyboard connected, which the password
-# prompt and the GitHub sign-in need; `curl ... | bash` would not):
+# Run it with:
 #
-#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh)"
+#   curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh | bash
 #
-#   --check   report what is installed and change nothing
+#   ... | bash -s -- --check   report what is installed and change nothing
+#
+# The line has no quotes on purpose. It gets pasted into documents, and word
+# processors turn straight quotes into curly ones, which the shell rejects.
 #
 # Safe to run again. Each step checks first and skips anything already done,
 # so the answer to most problems is "run it again".
@@ -23,9 +25,6 @@
 #   4. Your name and email for git
 #   5. GitHub sign-in
 set -euo pipefail
-
-CHECK_ONLY=false
-[[ "${1:-}" == "--check" ]] && CHECK_ONLY=true
 
 bold=$'\033[1m'; green=$'\033[32m'; yellow=$'\033[33m'; red=$'\033[31m'; reset=$'\033[0m'
 step() { printf '\n%s==> %s%s\n' "$bold" "$1" "$reset"; }
@@ -58,6 +57,14 @@ find_brew() {
   done
   return 1
 }
+
+# Everything that runs is inside main(). With `curl | bash`, bash reads the
+# script from the pipe as it goes, so a command that reads its input would eat
+# the rest of the script. Wrapping it in a function makes bash read all of it
+# before running any, and main's input comes from the keyboard instead.
+main() {
+CHECK_ONLY=false
+[[ "${1:-}" == "--check" ]] && CHECK_ONLY=true
 
 # --check: report and stop.
 if [[ "$CHECK_ONLY" == true ]]; then
@@ -213,3 +220,11 @@ He needs your GitHub username ($login) to give you access to the project.
 Then quit the Claude app (⌘Q) and open it again so it picks up the new tools.
 
 EOF
+}
+
+# No keyboard (for example, run from another program): use whatever input there is.
+if { exec 3</dev/tty; } 2>/dev/null; then
+  main "$@" <&3
+else
+  main "$@"
+fi

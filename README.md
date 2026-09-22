@@ -7,10 +7,10 @@ you in to GitHub.
 ## Run it
 
 Open Terminal (press **⌘ + Space**, type **Terminal**, press **Return**). Paste
-this line and press **Return**:
+this line and press **Return**. It's one line even if it wraps on your screen:
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh)"
+curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh | bash
 ```
 
 It takes 15–45 minutes, mostly downloads. Keep the laptop plugged in and the
@@ -27,5 +27,5 @@ run the script again at any time; it skips whatever is already done.
 ## Check without changing anything
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh)" -- --check
+curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh | bash -s -- --check
 ```
