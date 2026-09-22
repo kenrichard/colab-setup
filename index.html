@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>coLAB Mac Setup</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1d1d1f; --muted: #5f6368; --line: #e3e3e6;
+    --code-bg: #f4f4f6; --accent: #0b63ce; --accent-fg: #ffffff; --ok: #1a7f37;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161618; --fg: #f2f2f4; --muted: #a1a1a8; --line: #2e2e33;
+      --code-bg: #232327; --accent: #4c9bff; --accent-fg: #0b0b0c; --ok: #3fb950;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 8px; }
+  .lede { color: var(--muted); margin: 0 0 32px; }
+  ol.steps { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+  ol.steps > li {
+    counter-increment: step; position: relative;
+    padding: 0 0 28px 44px; margin: 0;
+  }
+  ol.steps > li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-fg);
+    font-weight: 600; font-size: 15px; display: grid; place-items: center;
+  }
+  h2 { font-size: 19px; margin: 2px 0 6px; }
+  p { margin: 0 0 10px; }
+  ul { margin: 6px 0 0; padding-left: 20px; }
+  li li { margin-bottom: 6px; }
+  kbd {
+    font: inherit; font-size: 0.9em; padding: 1px 6px;
+    border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px;
+    background: var(--code-bg);
+  }
+  .command {
+    display: flex; align-items: stretch; gap: 0; margin: 10px 0 6px;
+    border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+    background: var(--code-bg);
+  }
+  .command code {
+    flex: 1; min-width: 0; padding: 14px 16px;
+    font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    word-break: break-all;
+  }
+  .command button {
+    flex: none; border: 0; border-left: 1px solid var(--line);
+    background: var(--accent); color: var(--accent-fg);
+    font: 600 15px/1 inherit; font-family: inherit; padding: 0 20px; cursor: pointer;
+    min-width: 96px;
+  }
+  .command button.copied { background: var(--ok); }
+  .note { color: var(--muted); font-size: 15px; }
+  details { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 20px; }
+  summary { cursor: pointer; font-weight: 600; }
+  footer { color: var(--muted); font-size: 14px; margin-top: 40px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Set up your Mac for coLAB</h1>
+  <p class="lede">This installs the tools Claude Code needs: git, the GitHub tools and Node. It takes 15–45 minutes, mostly waiting for downloads.</p>
+
+  <ol class="steps">
+    <li>
+      <h2>Copy the command</h2>
+      <div class="command">
+        <code id="cmd">curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/setup-mac.sh | bash</code>
+        <button type="button" id="copy">Copy</button>
+      </div>
+    </li>
+
+    <li>
+      <h2>Open Terminal and paste it</h2>
+      <p>Press <kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, and press <kbd>Return</kbd>. Click in the window, press <kbd>⌘</kbd> + <kbd>V</kbd> to paste, then press <kbd>Return</kbd>.</p>
+    </li>
+
+    <li>
+      <h2>Follow what it says</h2>
+      <p>Keep the laptop plugged in and the lid open. Along the way it will:</p>
+      <ul>
+        <li>Ask for your <strong>Mac password</strong> once. Nothing appears on screen while you type it. That's normal. Type it and press <kbd>Return</kbd>.</li>
+        <li>Ask for your <strong>name and email</strong>.</li>
+        <li>Have you <strong>sign in to GitHub</strong> in your browser. If you don't have an account, make one at <a href="https://github.com/signup">github.com</a> first.</li>
+      </ul>
+    </li>
+
+    <li>
+      <h2>Send Ken a screenshot</h2>
+      <p>When it says <strong>All done</strong>, press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Terminal window. The screenshot lands on your desktop.</p>
+      <p class="note">If it stops with an error, send a screenshot of that instead. It's safe to run again; it skips whatever is already done.</p>
+    </li>
+
+    <li>
+      <h2>Restart Claude</h2>
+      <p>Quit the Claude app with <kbd>⌘</kbd> + <kbd>Q</kbd> and open it again, so it finds the new tools.</p>
+    </li>
+  </ol>
+
+  <details>
+    <summary>What does this install?</summary>
+    <p style="margin-top:10px"><strong>Git</strong> keeps a history of every change to the code and makes it possible to undo changes. <strong>GitHub</strong> is the website where the coLAB code is shared. Claude Code needs both.</p>
+    <p>In order, the script installs Apple's Command Line Tools (which include git), Homebrew (which installs the rest), the GitHub command-line tool, and Node. Then it records your name for git and signs you in to GitHub.</p>
+    <p>You can <a href="https://github.com/kenrichard/colab-setup/blob/main/setup-mac.sh">read the script</a> before running it.</p>
+  </details>
+
+  <footer>Questions: ask Ken.</footer>
+</main>
+<script>
+  const button = document.getElementById('copy');
+  const text = document.getElementById('cmd').textContent;
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // Older browsers: select the text so ⌘C copies it.
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('cmd'));
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      button.textContent = 'Press ⌘C';
+      return;
+    }
+    button.textContent = 'Copied';
+    button.classList.add('copied');
+    setTimeout(() => { button.textContent = 'Copy'; button.classList.remove('copied'); }, 2000);
+  });
+</script>
+</body>
+</html>
