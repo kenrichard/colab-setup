@@ -217,8 +217,6 @@ ${green}${bold}All done.${reset}
 ${bold}Take a screenshot of this window and send it to Ken.${reset}
 He needs your GitHub username ($login) to give you access to the project.
 
-Then quit the Claude app (⌘Q) and open it again so it picks up the new tools.
-
 EOF
 }
 
