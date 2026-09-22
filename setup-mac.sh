@@ -145,15 +145,19 @@ else
   ok "Installed"
 fi
 eval "$("$brew" shellenv)"
-# New Terminal windows need to find Homebrew too.
-if ! grep -qs 'brew shellenv' "$HOME/.zprofile"; then
+# On Apple Silicon Homebrew lives in /opt/homebrew, which new Terminal windows
+# don't search until this line is added. On Intel it is in /usr/local, which
+# they already do.
+if [[ "$brew" == /opt/homebrew/* ]] && ! grep -qs 'brew shellenv' "$HOME/.zprofile"; then
   printf '\neval "$(%s shellenv)"\n' "$brew" >> "$HOME/.zprofile"
 fi
 
 # 3. GitHub CLI and Node.
 step "3 of 5: GitHub CLI and Node"
+# Checked by command rather than by `brew list`, so a copy installed some other
+# way (nvm, a .pkg installer) counts and doesn't get a second one beside it.
 for formula in gh node; do
-  if brew list --formula "$formula" >/dev/null 2>&1; then
+  if command -v "$formula" >/dev/null 2>&1; then
     ok "$formula already installed"
   else
     say "Installing $formula..."
