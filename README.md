@@ -1,6 +1,15 @@
 # coLAB Mac setup
 
-**Setup pages: https://kenrichard.github.io/colab-setup/** — an index of the steps. Each part is a folder (`1-git/`) with its own `index.html`; `style.css` and `copy.js` are shared.
+**Setup pages: https://kenrichard.github.io/colab-setup/** — an index of the steps. Each part is a folder with its own `index.html`; `style.css` and `copy.js` are shared.
+
+| Part | Page | Script |
+|---|---|---|
+| 1. Install git and connect to GitHub | `1-git/` | `setup-mac.sh` |
+| 2. Get the code | `2-code/` | `get-code.sh` |
+| 3. Sign in to VERVE | `3-sign-in/` | — |
+| 4. Connect Claude Code to VERVE | `4-mcp/` | — |
+
+The rest of this file covers Part 1's script.
 
 Installs the tools Claude Code needs to work on the coLAB project: git (from
 Apple's Command Line Tools), Homebrew, the GitHub CLI and Node. It then signs
