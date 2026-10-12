@@ -10,40 +10,55 @@
 <main>
   <a class="back" href="../">← All setup steps</a>
   <p class="part-label">Part 2</p>
-  <h1>Get the code</h1>
-  <p class="lede">This downloads the coLAB project to your Mac, so Claude Code can read it. It takes a minute or two. Do Part 1 first.</p>
+  <h1>Install Claude Code and get the code</h1>
+  <p class="lede">This installs Claude Code, then has it download the coLAB project to your Mac. It takes about ten minutes. Do Part 1 first.</p>
 
   <ol class="steps">
     <li>
-      <h2>Copy the command</h2>
+      <h2>Install Claude Code</h2>
+      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
       <div class="command">
-        <code>curl -fsSL https://raw.githubusercontent.com/kenrichard/colab-setup/main/get-code.sh | bash</code>
+        <code>curl -fsSL https://claude.ai/install.sh | bash</code>
         <button type="button" class="copy">Copy</button>
       </div>
+      <p class="note">Already have it? Skip this step. If it ends by telling you to run another line, copy and run that line too, then close Terminal and open it again.</p>
     </li>
 
     <li>
-      <h2>Open Terminal and paste it</h2>
-      <p>Press <kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, and press <kbd>Return</kbd>. Click in the window, press <kbd>⌘</kbd> + <kbd>V</kbd> to paste, then press <kbd>Return</kbd>.</p>
-      <p class="note">If it says Ken needs to add you, send him the screenshot. It shows your GitHub username, which is what he needs. Run it again once he says you're in.</p>
+      <h2>Start Claude Code in a new colab-v2 folder</h2>
+      <div class="command">
+        <code>mkdir -p ~/colab-v2 &amp;&amp; cd ~/colab-v2 &amp;&amp; claude</code>
+        <button type="button" class="copy">Copy</button>
+      </div>
+      <p>The first time, it asks you to sign in to your Claude account and whether you trust the folder. Say yes.</p>
+    </li>
+
+    <li>
+      <h2>Ask Claude to get the code</h2>
+      <p>Copy this, paste it into Claude, and press <kbd>Return</kbd>:</p>
+      <div class="command">
+        <code>Use gh to clone colab-verve/verve-v2-api and colab-verve/verve-v2-colab into this folder. If I do not have access to them, tell me my GitHub username so I can send it to Ken.</code>
+        <button type="button" class="copy">Copy</button>
+      </div>
+      <p>Claude asks before running each command. Choose <strong>Yes</strong>.</p>
+      <p class="note">If Claude says you don't have access, send Ken the screenshot. It shows your GitHub username, which is what he needs. Ask Claude again once he says you're in.</p>
     </li>
 
     <li>
       <h2>Send Ken a screenshot</h2>
-      <p>When it says <strong>All done</strong>, press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Terminal window. The screenshot lands on your desktop.</p>
-      <p class="note">If it stops with an error, send a screenshot of that instead. It's safe to run again.</p>
+      <p>When Claude says both are downloaded, press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Terminal window. The screenshot lands on your desktop.</p>
+      <p>Type <strong>/exit</strong> and press <kbd>Return</kbd> to leave Claude.</p>
     </li>
   </ol>
 
   <details>
     <summary>What does this download?</summary>
-    <p style="margin-top:10px">Two folders, inside a new <strong>colab-v2</strong> folder in your home folder:</p>
+    <p style="margin-top:10px">Two folders, inside the new <strong>colab-v2</strong> folder in your home folder:</p>
     <ul>
       <li><strong>verve-v2-api</strong> holds the data, the rules for who can see what, and every planning document.</li>
       <li><strong>verve-v2-colab</strong> holds the screens people use.</li>
     </ul>
-    <p style="margin-top:10px">Both are private. Running the command again later fetches the latest changes.</p>
-    <p>You can <a href="https://github.com/kenrichard/colab-setup/blob/main/get-code.sh">read the script</a> before running it.</p>
+    <p style="margin-top:10px">Both are private. Later, you can ask Claude to get the latest changes.</p>
   </details>
 
   <footer>Questions: ask Ken.</footer>

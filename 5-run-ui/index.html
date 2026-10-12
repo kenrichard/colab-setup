@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 5: Run VERVE</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../">← All setup steps</a>
+  <p class="part-label">Part 5</p>
+  <h1>Run VERVE's screens on your Mac</h1>
+  <p class="lede">This runs the screens from the code on your Mac, using the test site's data. Changes you and Claude make to the screens show up here before anyone else sees them. It takes about ten minutes. Do it straight after <a href="../4-token/">Part 4</a>, with the token tab still open.</p>
+
+  <ol class="steps">
+    <li>
+      <h2>Start Claude Code in the project</h2>
+      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
+      <div class="command">
+        <code>cd ~/colab-v2/verve-v2-colab &amp;&amp; claude</code>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </li>
+
+    <li>
+      <h2>Ask Claude to set it up</h2>
+      <p>Copy this and paste it into Claude. <strong>Don't press Return yet.</strong></p>
+      <div class="command">
+        <code>Set this folder up to run against the test API: create .env.local with VERVE_API_URL=https://api.colab.riworks.app and UI_URL=http://localhost:3003 and VERVE_DEV_TOKEN set to the token at the end of this message, then run npm install. Do not start the server. The token is </code>
+        <button type="button" class="copy">Copy</button>
+      </div>
+      <p>Go back to the Settings tab from Part 4 and click the copy button beside the token again. Click at the end of your message in Claude and paste the token with <kbd>⌘</kbd> + <kbd>V</kbd>. Now press <kbd>Return</kbd>.</p>
+      <p>Claude asks before writing the file and running commands. Choose <strong>Yes</strong>. When it says it's done, type <strong>/exit</strong> and press <kbd>Return</kbd>.</p>
+    </li>
+
+    <li>
+      <h2>Start the screens</h2>
+      <div class="command">
+        <code>cd ~/colab-v2/verve-v2-colab &amp;&amp; npm run dev</code>
+        <button type="button" class="copy">Copy</button>
+      </div>
+      <p>When it says <strong>Ready</strong>, open <a href="http://localhost:3003">localhost:3003</a>. You should already be signed in, with the same organizations as on the test site.</p>
+      <p class="note">This is the command to use every time. Leave the Terminal window open while you use the screens. To stop them, click in that window and press <kbd>Control</kbd> + <kbd>C</kbd>.</p>
+    </li>
+
+    <li>
+      <h2>Send Ken a screenshot</h2>
+      <p>Press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the browser window showing localhost:3003.</p>
+      <p class="note">If a step stops with an error, send a screenshot of that instead.</p>
+    </li>
+  </ol>
+
+  <details>
+    <summary>How does this work?</summary>
+    <p style="margin-top:10px">VERVE has two parts. The <strong>API</strong> holds the data and decides who can see what. The <strong>screens</strong> show it. This runs only the screens on your Mac. They get their data from the test site's API, so you see the same sample data as everyone else, and anything you change there is changed for everyone.</p>
+    <p>The token stands in for signing in, so the <strong>Sign in</strong> and <strong>Sign out</strong> links don't work here. It's saved in a file called <code>.env.local</code>, which never gets uploaded to GitHub.</p>
+  </details>
+
+  <footer>Questions: ask Ken.</footer>
+</main>
+<script src="../copy.js"></script>
+</body>
+</html>

@@ -3,30 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Part 4: Connect Claude</title>
+<title>Part 6: Connect Claude</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <main>
   <a class="back" href="../">← All setup steps</a>
-  <p class="part-label">Part 4</p>
+  <p class="part-label">Part 6</p>
   <h1>Connect Claude Code to VERVE</h1>
-  <p class="lede">This lets Claude Code read and change VERVE's test site as you, so you can ask it questions about the data. It takes about ten minutes. Do Parts 1 to 3 first.</p>
+  <p class="lede">This lets Claude Code read and change VERVE's test site as you, so you can ask it questions about the data. It takes about five minutes. Do Parts 1 to 3 first. It doesn't need the token from Part 4.</p>
 
   <ol class="steps">
     <li>
-      <h2>Install Claude Code, if you haven't</h2>
-      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
-      <div class="command">
-        <code>curl -fsSL https://claude.ai/install.sh | bash</code>
-        <button type="button" class="copy">Copy</button>
-      </div>
-      <p class="note">Already have it? Skip this step. If it ends by telling you to run another line, copy and run that line too, then close Terminal and open it again.</p>
-    </li>
-
-    <li>
       <h2>Add VERVE to Claude Code</h2>
-      <p>In Terminal, copy, paste and press <kbd>Return</kbd>:</p>
+      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
       <div class="command">
         <code>claude mcp add --transport http --scope user verve https://api.colab.riworks.app/api/mcp</code>
         <button type="button" class="copy">Copy</button>
@@ -40,7 +30,7 @@
         <code>cd ~/colab-v2/verve-v2-api &amp;&amp; claude</code>
         <button type="button" class="copy">Copy</button>
       </div>
-      <p>The first time, it asks you to sign in to your Claude account and whether you trust the folder. Say yes.</p>
+      <p>If it asks whether you trust the folder, say yes.</p>
     </li>
 
     <li>
