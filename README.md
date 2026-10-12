@@ -5,11 +5,11 @@
 | Part | Page | Script |
 |---|---|---|
 | 1. Install git and connect to GitHub | `1-git/` | `setup-mac.sh` |
-| 2. Install Claude Code and get the code | `2-code/` | — (Claude clones the repositories) |
+| 2. Get the code with Claude | `2-code/` | — (a desktop Code-tab session clones the repositories) |
 | 3. Sign in to VERVE | `3-sign-in/` | — |
 | 4. Get a token | `4-token/` | — |
 | 5. Run the screens locally against the Fly API | `5-run-ui/` | — (Claude writes `.env.local`) |
-| 6. Connect Claude Code to VERVE | `6-mcp/` | — |
+| 6. Connect Claude to VERVE | `6-mcp/` | — (a custom connector, used by chat and the Code tab) |
 
 The rest of this file covers Part 1's script.
 

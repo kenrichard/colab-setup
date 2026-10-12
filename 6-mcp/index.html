@@ -10,56 +10,47 @@
 <main>
   <a class="back" href="../">← All setup steps</a>
   <p class="part-label">Part 6</p>
-  <h1>Connect Claude Code to VERVE</h1>
-  <p class="lede">This lets Claude Code read and change VERVE's test site as you, so you can ask it questions about the data. It takes about five minutes. Do Parts 1 to 3 first. It doesn't need the token from Part 4.</p>
+  <h1>Connect Claude to VERVE</h1>
+  <p class="lede">This lets Claude read and change VERVE's test site as you, so you can ask it about the data in an ordinary chat or while coding. It takes about five minutes. Do Part 3 first. It doesn't need the token from Part 4.</p>
 
   <ol class="steps">
     <li>
-      <h2>Add VERVE to Claude Code</h2>
-      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
+      <h2>Add VERVE as a connector</h2>
+      <p>In the Claude app, go to <strong>Customize</strong> › <strong>Connectors</strong> and click <strong>Add custom connector</strong>. Copy this address into the URL box:</p>
       <div class="command">
-        <code>claude mcp add --transport http --scope user verve https://api.colab.riworks.app/api/mcp</code>
+        <code>https://api.colab.riworks.app/api/mcp</code>
         <button type="button" class="copy">Copy</button>
       </div>
-      <p class="note">It should say it added the server. If it says <strong>already exists</strong>, that's fine.</p>
+      <p>Name it <strong>VERVE</strong> if it asks for a name. Leave everything else as it is and click <strong>Add</strong>.</p>
+      <p class="note">No <strong>Add custom connector</strong> button? Your Claude account is probably part of a team, where only the owner can add connectors. Tell Ken. Once the owner adds it, you'll find VERVE in the same list and can go on to the next step.</p>
     </li>
 
     <li>
-      <h2>Start Claude Code in the project</h2>
-      <div class="command">
-        <code>cd ~/colab-v2/verve-v2-api &amp;&amp; claude</code>
-        <button type="button" class="copy">Copy</button>
-      </div>
-      <p>If it asks whether you trust the folder, say yes.</p>
-    </li>
-
-    <li>
-      <h2>Sign in to VERVE from Claude</h2>
-      <p>Type <strong>/mcp</strong> and press <kbd>Return</kbd>. Use the arrow keys to pick <strong>verve</strong>, then <strong>Authenticate</strong>.</p>
-      <p>A browser page opens. Sign in with your coLAB email the same way as Part 3, then click <strong>Approve</strong>. Come back to Terminal; it should show verve as connected. Press <kbd>Esc</kbd> to close the list.</p>
+      <h2>Sign in to VERVE</h2>
+      <p>Click <strong>Connect</strong> beside VERVE. A browser page opens. Sign in with your coLAB email the same way as Part 3, then click <strong>Approve</strong>.</p>
     </li>
 
     <li>
       <h2>Test it</h2>
-      <p>Copy this, paste it into Claude, and press <kbd>Return</kbd>:</p>
+      <p>Start a new chat. Copy this, paste it, and press <kbd>Return</kbd>:</p>
       <div class="command">
-        <code>Use the verve tools to tell me who I am signed in as and which organizations I can see.</code>
+        <code>Use VERVE to tell me who I am signed in as and which organizations I can see.</code>
         <button type="button" class="copy">Copy</button>
       </div>
-      <p>Claude asks before using each tool. Choose <strong>Yes</strong>. It should answer with your name and a list that includes coLAB, PANO and the two sample clients.</p>
+      <p>Claude may ask before using VERVE. Allow it. It should answer with your name and a list that includes coLAB, PANO and the two sample clients.</p>
     </li>
 
     <li>
       <h2>Send Ken a screenshot</h2>
-      <p>Press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Terminal window, so Ken can see Claude's answer.</p>
+      <p>Press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Claude window, so Ken can see the answer.</p>
       <p class="note">If any step stops with an error, send a screenshot of that instead.</p>
     </li>
   </ol>
 
   <details>
     <summary>What did this just do?</summary>
-    <p style="margin-top:10px"><strong>MCP</strong> is how Claude connects to another system. Adding VERVE gives Claude a set of tools, one for each thing the site can do: list organizations, read a plan, save answers, and so on.</p>
-    <p>Claude uses them as you, with your access and nothing more. Every call it makes is recorded with your name. To disconnect, type <strong>/mcp</strong>, pick verve, and choose to clear the sign-in.</p>
+    <p style="margin-top:10px">A <strong>connector</strong> gives Claude a set of tools for another system. VERVE's tools match what the site can do: list organizations, read a plan, save answers, and so on. The connector works in chats and in coding sessions.</p>
+    <p>Claude uses them as you, with your access and nothing more. Every call it makes is recorded with your name. To disconnect, go back to <strong>Customize</strong> › <strong>Connectors</strong> and remove VERVE.</p>
   </details>
 
   <footer>Questions: ask Ken.</footer>

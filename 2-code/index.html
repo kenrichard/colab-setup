@@ -10,44 +10,36 @@
 <main>
   <a class="back" href="../">← All setup steps</a>
   <p class="part-label">Part 2</p>
-  <h1>Install Claude Code and get the code</h1>
-  <p class="lede">This installs Claude Code, then has it download the coLAB project to your Mac. It takes about ten minutes. Do Part 1 first.</p>
+  <h1>Get the code with Claude</h1>
+  <p class="lede">This has Claude download the coLAB project to your Mac, using the Claude desktop app. It takes about ten minutes. Do Part 1 first.</p>
 
   <ol class="steps">
     <li>
-      <h2>Install Claude Code</h2>
-      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
-      <div class="command">
-        <code>curl -fsSL https://claude.ai/install.sh | bash</code>
-        <button type="button" class="copy">Copy</button>
-      </div>
-      <p class="note">Already have it? Skip this step. If it ends by telling you to run another line, copy and run that line too, then close Terminal and open it again.</p>
+      <h2>Open the Claude app</h2>
+      <p>If you don't have it, download it from <a href="https://claude.ai/download">claude.ai/download</a>, install it, and sign in.</p>
+      <p class="note">The coding part of the app needs a paid Claude plan: Pro, Max, Team or Enterprise. If clicking <strong>Code</strong> in the next step asks you to upgrade, tell Ken.</p>
     </li>
 
     <li>
-      <h2>Start Claude Code in a new colab-v2 folder</h2>
-      <div class="command">
-        <code>mkdir -p ~/colab-v2 &amp;&amp; cd ~/colab-v2 &amp;&amp; claude</code>
-        <button type="button" class="copy">Copy</button>
-      </div>
-      <p>The first time, it asks you to sign in to your Claude account and whether you trust the folder. Say yes.</p>
+      <h2>Start a coding session in a new colab-v2 folder</h2>
+      <p>Click <strong>Code</strong> at the top of the window. In the box at the bottom, choose <strong>Local</strong>, then click <strong>Select folder</strong>.</p>
+      <p>In the window that opens, go to your home folder (the one with your name, under <strong>Locations</strong> or on the left). Click <strong>New Folder</strong>, name it <strong>colab-v2</strong>, and click <strong>Open</strong>.</p>
     </li>
 
     <li>
       <h2>Ask Claude to get the code</h2>
-      <p>Copy this, paste it into Claude, and press <kbd>Return</kbd>:</p>
+      <p>Copy this, paste it into the box, and press <kbd>Return</kbd>:</p>
       <div class="command">
         <code>Use gh to clone colab-verve/verve-v2-api and colab-verve/verve-v2-colab into this folder. If I do not have access to them, tell me my GitHub username so I can send it to Ken.</code>
         <button type="button" class="copy">Copy</button>
       </div>
-      <p>Claude asks before running each command. Choose <strong>Yes</strong>.</p>
+      <p>Claude asks before running each command. Allow it.</p>
       <p class="note">If Claude says you don't have access, send Ken the screenshot. It shows your GitHub username, which is what he needs. Ask Claude again once he says you're in.</p>
     </li>
 
     <li>
       <h2>Send Ken a screenshot</h2>
-      <p>When Claude says both are downloaded, press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Terminal window. The screenshot lands on your desktop.</p>
-      <p>Type <strong>/exit</strong> and press <kbd>Return</kbd> to leave Claude.</p>
+      <p>When Claude says both are downloaded, press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the Claude window. The screenshot lands on your desktop.</p>
     </li>
   </ol>
 

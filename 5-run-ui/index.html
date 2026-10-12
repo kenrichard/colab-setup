@@ -15,38 +15,30 @@
 
   <ol class="steps">
     <li>
-      <h2>Start Claude Code in the project</h2>
-      <p>Open Terminal (<kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, <kbd>Return</kbd>). Copy this, paste it, and press <kbd>Return</kbd>:</p>
-      <div class="command">
-        <code>cd ~/colab-v2/verve-v2-colab &amp;&amp; claude</code>
-        <button type="button" class="copy">Copy</button>
-      </div>
+      <h2>Start a coding session in the screens folder</h2>
+      <p>In the Claude app, click <strong>Code</strong>. In the box at the bottom, choose <strong>Local</strong>, click <strong>Select folder</strong>, and pick <strong>verve-v2-colab</strong> inside your <strong>colab-v2</strong> folder.</p>
     </li>
 
     <li>
       <h2>Ask Claude to set it up</h2>
-      <p>Copy this and paste it into Claude. <strong>Don't press Return yet.</strong></p>
+      <p>Copy this and paste it into the box. <strong>Don't press Return yet.</strong></p>
       <div class="command">
-        <code>Set this folder up to run against the test API: create .env.local with VERVE_API_URL=https://api.colab.riworks.app and UI_URL=http://localhost:3003 and VERVE_DEV_TOKEN set to the token at the end of this message, then run npm install. Do not start the server. The token is </code>
+        <code>Set this folder up to run against the test API: create .env.local with VERVE_API_URL=https://api.colab.riworks.app and UI_URL=http://localhost:3003 and VERVE_DEV_TOKEN set to the token at the end of this message, run npm install, then start the dev server and open it. The token is </code>
         <button type="button" class="copy">Copy</button>
       </div>
       <p>Go back to the Settings tab from Part 4 and click the copy button beside the token again. Click at the end of your message in Claude and paste the token with <kbd>⌘</kbd> + <kbd>V</kbd>. Now press <kbd>Return</kbd>.</p>
-      <p>Claude asks before writing the file and running commands. Choose <strong>Yes</strong>. When it says it's done, type <strong>/exit</strong> and press <kbd>Return</kbd>.</p>
+      <p>Claude asks before writing the file and running commands. Allow it.</p>
     </li>
 
     <li>
-      <h2>Start the screens</h2>
-      <div class="command">
-        <code>cd ~/colab-v2/verve-v2-colab &amp;&amp; npm run dev</code>
-        <button type="button" class="copy">Copy</button>
-      </div>
-      <p>When it says <strong>Ready</strong>, open <a href="http://localhost:3003">localhost:3003</a>. You should already be signed in, with the same organizations as on the test site.</p>
-      <p class="note">This is the command to use every time. Leave the Terminal window open while you use the screens. To stop them, click in that window and press <kbd>Control</kbd> + <kbd>C</kbd>.</p>
+      <h2>Look at the screens</h2>
+      <p>Claude opens the screens in a browser pane beside the conversation. You can also open <a href="http://localhost:3003">localhost:3003</a> in your usual browser. You should already be signed in, with the same organizations as on the test site.</p>
+      <p class="note">Next time, start a coding session in the same folder and ask Claude: <strong>Start the dev server and open it.</strong> The token is saved, so you don't need it again.</p>
     </li>
 
     <li>
       <h2>Send Ken a screenshot</h2>
-      <p>Press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the browser window showing localhost:3003.</p>
+      <p>Press <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, then <kbd>Space</kbd>, and click the window showing the screens.</p>
       <p class="note">If a step stops with an error, send a screenshot of that instead.</p>
     </li>
   </ol>
